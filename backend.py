@@ -1,5 +1,5 @@
 import os
-from supabase import create_client
+from supabase.client import create_client
 from fastapi import FastAPI
 from dotenv import load_dotenv
 
