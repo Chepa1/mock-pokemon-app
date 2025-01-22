@@ -58,9 +58,8 @@ with st.expander("Filter by letter"):
     if st.button("Filter"):
         if st.session_state.selected_letter and letter_filter_selected:
             try:
-                response = requests.get(
-                    f"http://localhost:8000/letter_filter/{letter_filter_selected}/{st.session_state.selected_letter}"
-                )
+                BACKEND_URL = "https://web-production-bd54.up.railway.app"
+                response = requests.get(f"{BACKEND_URL}/letter_filter/{letter_filter_selected}/{st.session_state.selected_letter}")
                 if response.status_code == 200:
                     pokemon_list = response.json()
                     if pokemon_list:
